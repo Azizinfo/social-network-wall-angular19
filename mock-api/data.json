@@ -1,0 +1,26 @@
+{
+  "users": [
+    {
+      "id": "1683",
+      "email": "az@gmail.om",
+      "username": "azzzaeza",
+      "password": "aedazdazdaz"
+    },
+    {
+      "id": "f1b5",
+      "email": "az@gmail.com",
+      "username": "aziz",
+      "password": "azerty"
+    }
+  ],
+  "posts": [
+    {
+      "id": "fe8e",
+      "username": "aziz",
+      "text": "dgsdgdsgsd",
+      "imageURL": "",
+      "likes": [],
+      "comments": []
+    }
+  ]
+}

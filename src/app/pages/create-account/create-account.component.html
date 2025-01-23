@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="form-container">
+        <div class="tilte">Create account</div>
+        <form [formGroup]="createAccountForm">
+            <mat-form-field appearance="outline">
+                <mat-label>Enter your mail</mat-label>
+                <input matInput formControlName="email" (blur)="createAccountForm.controls['email'].markAsTouched()"/>
+                <mat-error *ngIf="createAccountForm.controls['email'].touched && createAccountForm.controls['email'].invalid">
+                    {{createAccountForm.controls['email'].hasError('required') ? 'Email is required' : 'Email must be a valid email'}}
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Enter your Username</mat-label>
+                <input matInput formControlName="username" (blur)="createAccountForm.controls['username'].markAsTouched()"/>
+                <mat-error *ngIf="createAccountForm.controls['username'].touched && createAccountForm.controls['username'].invalid">
+                    {{createAccountForm.controls['username'].hasError('required') ? 'Username is required' : 'Username should be at most 10 characters'}}
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Enter your passeword</mat-label>
+                <input type="password" matInput formControlName="password" (blur)="createAccountForm.get('password')?.markAsTouched()"/>
+                <mat-error *ngIf="createAccountForm.get('password')?.touched && createAccountForm.get('password')?.invalid">
+                  {{createAccountForm.get('password')?.hasError('required') ? 'Password is required' : 'Password must be at least 6 characters'}}
+                </mat-error> 
+            </mat-form-field>
+        </form>
+        {{createAccountForm.value | json}}
+        <div class="buttons-container">
+            <button mat-raised-button [disabled]="createAccountForm.invalid" (click)="create()" class="primary login-button">
+                Create account
+            </button>
+            <p>OR</p>
+            <button routerLink="/login" mat-button>Login</button>
+        </div>
+    </div>
+</div>
